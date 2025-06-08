@@ -236,3 +236,600 @@ public class GenerateRandomeNumbersInGivenRange {
     
      }
 }
+
+package arrays;
+
+import java.util.Arrays;
+
+public class BinarySearchUsingMethod {
+  
+ public static void main(String args[])
+   {
+  int array[] = {10, 20, 30, 40, 50 }; //Should be in order
+  
+     System.out.println(Arrays.binarySearch(array, 30));
+   }
+}
+
+--------------------------------------------------------------------------------
+package strings;
+
+public class ConvertSentenceCase {
+ 
+ public static void main(String[] args) {
+
+  String s = "my name is pavan";
+  String rev = "";
+  
+  String s1 [] = s.split(" ");
+  for(int i =0; i
+  String f = s1[i].substring(0, 1).toUpperCase();
+  String l = s1[i].substring(1, s1[i].length());
+  
+  rev = rev +" "+  (f+l);
+  
+  
+  }
+  System.out.println(rev.trim());
+  
+ }
+}
+--------------------------------------------------------------------------------
+package arrays;
+
+public class BubbleSort {
+
+  public static void main(String []args) {
+      int n, c, d, temp;
+     
+      int array[] = {500,300,200,400,100};
+      n = array.length;
+      
+      System.out.println("Array Before Bubble Sort");
+        
+        for(int i = 0; i < array.length; i++) {
+           System.out.print(array[i] + " ");
+        } 
+      
+     //Sorting     
+      temp = 0;
+        
+        for(int i = 0; i < n; i++) {
+           for(int j=1; j < (n-i); j++) 
+           {
+              if(array[j-1] > array[j]) 
+              { 
+                 temp = array[j-1]; 
+                 array[j-1] = array[j];
+                 array[j] = temp;
+              } 
+           } 
+        } 
+        
+        System.out.println();
+        
+        System.out.println("Array After Bubble Sort");
+        
+        for(int i = 0; i < array.length; i++) {
+           System.out.print(array[i] + " ");
+        } 
+}
+}
+--------------------------------------------------------------------------------
+package strings;
+
+import java.util.Scanner;
+
+public class CountTheWords {
+
+ public static void main(String[] args) {
+   {
+          System.out.println("Enter the string:");
+   
+          Scanner sc = new Scanner(System.in);
+   
+          String s=sc.nextLine();
+   
+          int count = 1;
+   
+          for (int i = 0; i < s.length()-1; i++)
+          {
+              if((s.charAt(i) == ' ') && (s.charAt(i+1) != ' '))
+              {
+                  count++;
+              }
+          }
+   
+          System.out.println("Number of words in a string = "+count);
+      }
+
+ }
+
+}
+--------------------------------------------------------------------------------
+package collections;
+
+import java.util.Random;
+
+public class GeneratingRandomNumbers {
+
+  public static void main(String[] args)
+     {
+   
+   //Appraoch1: Generating Random Numbers Using java.util.Random Class
+        
+    Random random = new Random();
+  
+         //Generating random integers using Random class
+  
+         for(int i = 0; i < 5; i++)
+         {
+             System.out.println("Random Integers : "+random.nextInt());
+         }
+  
+         System.out.println("-----------------------------");
+  
+         //Generating random doubles using Random class
+  
+         for(int i = 0; i < 5; i++)
+         {
+             System.out.println("Random Doubles : "+random.nextDouble());
+         }
+  
+         System.out.println("-----------------------------");
+  
+         //Generating random booleans using Random class
+  
+         for(int i = 0; i < 5; i++)
+         {
+             System.out.println("Random booleans : "+random.nextBoolean());
+         }
+         
+         
+       // Generating Random Numbers Using Math.random()
+              //Generating random doubles using Math.random()
+         
+         for(int i = 0; i < 5; i++)
+         {
+             System.out.println("Random Doubles : "+Math.random());
+         }
+         
+     }
+  
+}
+
+package strings;
+--------------------------------------------------------------------------------
+
+/*Write a java program to count the total number of occurrences of a given character 
+in a string without using any loop?
+  */
+
+public class CountCharacterOccurence {
+ public static void main(String[] args)
+    {
+        String s = "Java is java again java again";
+
+        char c = 'a';
+
+        int count = s.length() - s.replace("a", "").length();
+
+        System.out.println("Number of occurances of 'a' is: "+count);
+    }
+}
+
+package collections;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class DuplicateElements {
+
+ public static void main(String[] args) {
+
+  String names[] = {"Java", "JavaScript", "Ruby", "C", "Python", "Java"};
+  
+  //1. compare each element: O(nxn) --- worst solution
+  for(int i = 0; i
+   for(int j = i+1; j
+
+    if(names[i].equals(names[j])){
+     System.out.println("duplicate element is::" + names[i]);
+    }
+   }
+  }
+  
+  System.out.println("*********");
+  
+  //2. using HashSet: Java Collection: it stores unique values: O(n)
+  Set store = new HashSet();
+  for(String name : names){
+   if(store.add(name) == false){
+    System.out.println("duplicate element is::" + name);
+   }
+  }
+  
+  System.out.println("*********");
+
+  //3. using HashMap: O(2n)
+  Map storeMap = new HashMap();
+  
+  for(String name : names){
+   Integer count = storeMap.get(name);
+   if(count == null){
+    storeMap.put(name, 1);
+   }
+   else{
+    storeMap.put(name, ++count);
+   }
+  }
+  
+  //get the values from this HashMap:
+    
+      Set> entrySet = storeMap.entrySet();
+      for(Entry entry : entrySet){
+       if(entry.getValue()>1){
+        System.out.println("duplicate element is::"+ entry.getKey());
+       }
+      }
+  
+  
+  
+ }
+
+}
+--------------------------------------------------------------------------------
+package conditions;
+
+public class GreatestOfThreeNumbers {
+
+ public static void main(String[] args) {
+  
+  int a=50;
+  int b=100;
+  int c=20;
+  
+  if(a>b && a>c)
+  {
+   System.out.println(" a is greatest");
+  }
+  else if(b>a && b>c)
+  {
+   System.out.println("b is largest");
+  }
+  else
+  {
+   System.out.println("c is greatest");
+  }
+  
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapExample {
+
+ public static void main(String[] args) {
+  
+  HashMap hm=new HashMap ();
+  
+  //adding values to HashMap
+  hm.put(101,"John");
+  hm.put(102,"Scott");
+  hm.put(103,"David");
+  hm.put(104,"Smith");
+  hm.put(105,"Kim");
+  
+  System.out.println(hm);
+  
+  //Remove a pair from hashmap
+  hm.remove(103);
+  System.out.println("After remove pair from hashmap:"+hm);
+  
+  hm.put(106,"XYZ");
+  System.out.println(hm);
+  
+  //Get values
+  System.out.println("The Value is: " + hm.get(104)); //Smith
+  
+  //How to read pairs from HashMap
+  
+  for(Map.Entry m:hm.entrySet())
+  {
+   System.out.println(m.getKey()+"   "+m.getValue());
+     
+  }
+   
+  
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package conditions;
+
+public class IfElseCondition {
+
+ public static void main(String[] args) {
+  
+  int age=20;
+  
+  if(age>=18)
+  {
+   System.out.println("Eligible for vote");
+  }
+  else
+  {
+   System.out.println("NOT Eligible for vote");
+  }
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package strings;
+
+public class IntegerToStringConvesion {
+
+ public static void main(String[] args) {
+  // Convert Integer To String Using Integer.toString() Method
+   int i = 2015;
+          
+         String s = Integer.toString(i);
+          
+         System.out.println(s); 
+   
+         //Convert Integer To String Using String.valueOf() method
+         s = String.valueOf(i);
+          
+         System.out.println(s);  
+         
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package arrays;
+
+class LinearSearch 
+{
+  public static void main(String args[])
+  {
+
+    int array[] = {100,200,300,400,500};
+
+    int search_element=400;
+    
+ int c;
+    
+    for (c = 0; c < array.length; c++)
+    {
+      if (array[c] == search_element)     /* Searching element is present */
+      {
+         System.out.println(search_element + " is present at location " + (c + 1) + ".");
+          break;
+      }
+   }
+   if (c == array.length)  /* Element to search isn't present */
+      System.out.println(search_element + " isn't present in array.");
+  }
+}
+package conditions;
+
+public class LargestofTwoNumbers {
+
+ public static void main(String[] args) {
+  
+  int a=50;
+  
+  int b=20;
+  
+  if(a>b)
+  {
+   System.out.println("a is largest");
+  }
+
+  else
+  {
+   System.out.println("b is largest");
+  }
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package arrays;
+
+public class MaxAndMinElementInArray {
+
+ public static void main(String[] args) {
+  
+  int array[]={10,100,20,50,5,60};
+  
+  //Max value in array
+  int max = array[0];
+
+  for (int i = 1; i < array.length; i++) {
+      if (array[i] > max) 
+      {
+        max = array[i];
+      }
+  }
+  
+  System.out.println("Max Element in array:" +max);
+  
+  // Min value in array
+  int min = array[0];
+
+  for (int i = 1; i < array.length; i++) {
+      if (array[i] < min) 
+      {
+        min = array[i];
+      }
+  }
+  
+  System.out.println("Min Element in array:" +min);
+  
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package arrays;
+
+public class MissingNumber {
+
+ public static void main(String[] args) {
+
+  //int a[] = {1,2,3,4,5,7,8,9,10,........100};
+  //1+2+4+5 = 12
+  //1+2+3+4+5 = 15
+  //15-12 = 3
+      
+  int a[] = {-1,0,1,2,4,5,6,7,8,9,10};
+  int sum = 0;
+  for(int i = 0; i
+   sum = sum + a[i]; //49
+  }
+  System.out.println(sum);
+  
+  int sum1 = 0;
+  for(int j=-1; j<=10; j++){
+   sum1 = sum1 + j;//55
+  }
+  
+  System.out.println(sum1);
+  
+  System.out.println("missing number is:"+ (sum1-sum));
+   
+ }
+
+}
+--------------------------------------------------------------------------------
+package loops;
+
+public class MultiplicationTable {
+
+ public static void main(String[] args) {
+  
+  int n=5;
+  
+  for(int i=1;i<=10;i++)
+  {
+   System.out.println(n +"X"+i+"="+ (n*i));
+  }
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package conditions;
+
+public class NestedIfElse {
+
+ public static void main(String[] args) {
+  
+  int day=10;
+  
+  if(day==1)
+  {
+   System.out.println("Sunday");
+  }
+  else if(day==2)
+  {
+   System.out.println("Monday");
+  }
+  else if(day==3)
+  {
+   System.out.println("Tuesday");
+  }
+  else if(day==4)
+  {
+   System.out.println("Wednesday");
+  }
+  else if(day==5)
+  {
+   System.out.println("Thursday");
+  }
+  else if(day==6)
+  {
+   System.out.println("Friday");
+  }
+  else if(day==7)
+  {
+   System.out.println("Saturday");
+  }
+  else
+  {
+   System.out.println("Invalid week number");
+  }
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package loops;
+public class NumberOfDigits {
+
+ public static void main(String[] args) {
+  
+  int count = 0;
+  int num = 3452;
+
+        while(num != 0)
+        {
+            num /= 10;  // 345  34  3
+            ++count;
+        }
+
+        System.out.println("Number of digits: " + count);
+  
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package loops;
+
+import java.util.Scanner;
+
+public class Palindrome {
+
+ public static void main(String[] args) {
+   
+  int lastDigit,sum=0,a;    
+  int inputNumber=171; //It is the number  to be checked for palindrome 
+
+  a=inputNumber; 
+        
+        // Code to reverse a number
+  while(a>0)
+  {   System.out.println("Input Number "+a);  
+   lastDigit=a%10; //getting remainder  
+   System.out.println("Last Digit "+lastDigit); 
+   System.out.println("Digit "+lastDigit+ " was added to sum "+(sum*10)); 
+   sum=(sum*10)+lastDigit;  
+   a=a/10;
+   
+  }    
+
+  // if given number equal to sum than number is palindrome otherwise not palindrome
+  if(sum==inputNumber)    
+   System.out.println("Number is palindrome ");    
+  else    
+   System.out.println("Number is not palindrome");     
+ }
+
+}
