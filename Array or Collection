@@ -1,0 +1,238 @@
+package arrays;
+
+public class AddTwoMatrix {
+  public static void main(String args[])
+    {
+       int m, n, c, d;
+       
+       int first[][] = { {1,2}, {5,10}, {2,6} };
+       int second[][] = { {2,6}, {1,2}, {5,3} };
+       
+       m=first.length;
+       n=first[0].length;
+       
+       int sum[][] = new int[m][n];
+       
+       System.out.println("Calculating Sum of 2 matrices....");
+       
+       for ( c = 0 ; c < m ; c++ )
+           for ( d = 0 ; d < n ; d++ )
+               sum[c][d] = first[c][d] + second[c][d];  //replace '+' with '-' to subtract matrices
+          
+
+  
+       System.out.println("Sum of 2 matrices....");
+  
+       for ( c = 0 ; c < m ; c++ )
+       {
+          for ( d = 0 ; d < n ; d++ )
+             System.out.print(sum[c][d]+"\t");
+  
+          System.out.println();
+       }
+    }
+  
+}
+--------------------------------------------------------------------------------
+package collections;
+
+import java.util.ArrayList;
+
+public class ArrayListExample1 {
+
+ public static void main(String[] args) {
+  
+  //Declaration
+  ArrayList list=new ArrayList();
+  
+  //Add values to arraylist
+  list.add("John");
+  list.add("David");
+  list.add("Scott");
+  list.add("Smith");
+  
+  System.out.println(list.size()); // returns size of arraylist
+  
+  //reading values from arraylist
+  for(String s:list)
+  {
+   System.out.println(s);
+  }
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package conditions;
+
+public class EvenOrOddNumber {
+
+ public static void main(String[] args) {
+ 
+  int num=10;
+  
+  if(num%2 == 0)
+  {
+   System.out.println("Number is even number");
+  }
+
+  else
+  {
+   System.out.println("Number is odd number");
+  }
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package arrays;
+
+class BinarySearch 
+{
+  public static void main(String args[])
+  {
+   int c, first, last, middle, n, search_element;
+   
+   int array[] = {100,200,300,400,500};
+   
+   search_element=200;
+   
+   n=array.length;
+   
+   first  = 0;
+   last   = n - 1;
+   middle = (first + last)/2;
+
+    while( first <= last )
+    {
+      if ( array[middle] < search_element )
+        first = middle + 1;    
+      else if ( array[middle] == search_element ) 
+      {
+        System.out.println(search_element + " found at location " + (middle + 1) + ".");
+        break;
+      }
+      else
+         last = middle - 1;
+
+      middle = (first + last)/2;
+   }
+   if ( first > last )
+      System.out.println(search_element + " isn't present in the list.\n");
+  }
+}
+--------------------------------------------------------------------------------
+
+package arraysandstrings;
+
+public class EvenAndOddNumbersinArray {
+
+ public static void main(String[] args) {
+  
+  int a[]={10,20,15,3,6,7,8,2,5,7};
+  
+  int n=a.length;
+  
+  System.out.print("Odd numbers:");
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(a[i] % 2 != 0)
+            {
+                System.out.print(a[i]+" ");
+            }
+        }
+        System.out.println();
+        
+        System.out.print("Even numbers:");
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(a[i] % 2 == 0)
+            {
+                System.out.print(a[i]+" ");
+            }
+        }
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package collections;
+
+import java.util.ArrayList;
+
+public class ArrayListExample2 {
+
+ public static void main(String[] args) {
+  
+  //Declaration
+  ArrayList list=new ArrayList(); 
+  
+  //Adding values to array list
+  list.add("welcome");
+  list.add(100);
+  list.add(10.5);
+  list.add('C');
+  list.add(true);
+  
+  System.out.println(list.size()); //size of arraylist
+  
+  System.out.println(list.get(2)); //returns specific value from array list, index starts from 0
+  
+  System.out.println("Before inserting:" +list); // print all the values from arraylist
+  
+  
+  //Insert values into araylist
+  list.add(1,"selenium");
+  System.out.println("After insertion:" +list);
+  
+  // remove values from arraylist
+  list.remove(3);
+  System.out.println("After remove:" +list);
+  
+  
+  //reading values from array list usign for loop
+  
+  for(Object i:list)
+  {
+   System.out.println(i);
+  }
+
+ }
+
+}
+
+--------------------------------------------------------------------------------
+package collections;
+
+import java.util.Random;
+
+//Generating Random Numbers In The Given Range
+
+public class GenerateRandomeNumbersInGivenRange {
+
+  public static void main(String[] args)
+     {
+         //Generating random integers between 0 and 50 using Random class
+  
+         System.out.println("Random integers between 0 and 50 using Random class :");
+  
+         Random random = new Random();
+  
+         for (int i = 0; i < 5; i++)
+         {
+             System.out.println(random.nextInt(50));
+         }
+  
+         //Generating random integers between 0 and 50 range using Math.random()
+  
+         System.out.println("Random integers between 0 and 50 using Math.random() :");
+  
+         for (int i = 0; i < 5; i++)
+         {
+             System.out.println((int)(Math.random() * 50));
+         }
+    
+     }
+}
